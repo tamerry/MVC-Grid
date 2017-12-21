@@ -1,0 +1,24 @@
+﻿@using GridMvc.Html
+@model IEnumerable<TabloCalısma.Models.Grid_Tables>
+@{
+    ViewBag.Title = "Ara";
+}
+
+<h2>Ara</h2>
+
+
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+<script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+<div class="code-cut">
+    @Html.Grid(Model).Columns(Columns =>
+                          {
+                              Columns.Add(c => c.FirstName).Titled("Name").Filterable(true);
+                              Columns.Add(c => c.LastName).Titled("Last Name").Filterable(true);
+                              Columns.Add(c => c.Title).Titled("Title").Filterable(true);
+
+                          }).WithPaging(50).Sortable(true)
+
+</div>
+
