@@ -13,12 +13,32 @@
 <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
 <div class="code-cut">
     @Html.Grid(Model).Columns(Columns =>
-                          {
-                              Columns.Add(c => c.FirstName).Titled("Name").Filterable(true);
-                              Columns.Add(c => c.LastName).Titled("Last Name").Filterable(true);
-                              Columns.Add(c => c.Title).Titled("Title").Filterable(true);
+    {
+ 
+            Columns.Add()
+            .Encoded(false)
+            .Sanitized(false)
+            .SetWidth(30)
+            .RenderValueAs(o => @<button type="submit">Kaydet</button>);
 
-                          }).WithPaging(50).Sortable(true)
+                Columns.Add()
+                    .Encoded(false)
+                    .Sanitized(false)
+                    .SetWidth(30)
+                    .Titled("Check")
+                    .RenderValueAs(o => Html.CheckBox("checked", false));
+
+                Columns.Add(c => c.EmpNo).Titled("Kayıt No").Filterable(true);
+                Columns.Add(c => c.EName).Titled("Name").Filterable(true);
+                Columns.Add(c => c.Job).Titled("Departman").Filterable(true);
+                Columns.Add(c => c.HireDate).Titled("işe giriş tarihi").Filterable(true).Format("{0:dd/MM/yyyy}");
+                Columns.Add(c => c.Sal).Titled("Maaş").Filterable(true).Format("{0:C}");
+                Columns.Add(c => c.Comm).Titled("Prim").Filterable(true).Format("{0:C}");
+
+
+
+
+            }).WithPaging(50).Sortable(true)
 
 </div>
 

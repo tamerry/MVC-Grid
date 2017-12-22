@@ -25,6 +25,6 @@ namespace TabloCalısma
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Person_Table> Person_Table { get; set; }
+        public virtual DbSet<Tbl_Emp> Tbl_Emp { get; set; }
     }
 }

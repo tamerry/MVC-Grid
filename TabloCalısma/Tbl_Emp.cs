@@ -12,11 +12,15 @@ namespace TabloCalısma
     using System;
     using System.Collections.Generic;
     
-    public partial class Person_Table
+    public partial class Tbl_Emp
     {
-        public int ID { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Title { get; set; }
+        public int EmpNo { get; set; }
+        public string EName { get; set; }
+        public string Job { get; set; }
+        public Nullable<int> Mgr { get; set; }
+        public Nullable<System.DateTime> HireDate { get; set; }
+        public Nullable<decimal> Sal { get; set; }
+        public Nullable<decimal> Comm { get; set; }
+        public Nullable<int> Dept { get; set; }
     }
 }

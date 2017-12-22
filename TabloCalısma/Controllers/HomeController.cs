@@ -14,12 +14,16 @@ namespace TabloCalısma.Controllers
         public ActionResult Ara()
         {
             DatabaseEntities db = new DatabaseEntities();
-            var result = (from c in db.Person_Table
+            var result = (
+                from c in db.Tbl_Emp
                           select new Grid_Tables
-                          {   ID=c.ID,
-                              Title=c.Title,
-                              FirstName=c.FirstName,
-                              LastName=c.LastName,
+                          {   EmpNo=c.EmpNo,
+                          EName=c.EName,
+                          Job=c.Job,
+                          HireDate=c.HireDate,
+                          Sal=c.Sal,
+                          Comm=c.Comm,
+
                           }).ToList();
             return View(result);
         }
